@@ -22,8 +22,12 @@ class jpmViewjpm extends JView
 {
     function display($tpl = null)
     {
-        $greeting = "Hello mumumumumu World!";
-        $this->assignRef( 'greeting', $greeting );
+
+        $model =& $this->getModel();
+        $greeting = $model->getGreeting();
+        $this->assignRef( 'greeting',$greeting );
+        $items =& $this->get( 'Data');
+        $this->assignRef( 'items', $items );
 
         parent::display($tpl);
     }
