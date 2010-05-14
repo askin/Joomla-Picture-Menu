@@ -22,12 +22,16 @@ class jpmViewjpm extends JView
 {
     function display($tpl = null)
     {
+        if (!($jpmId= JRequest::getInt( 'jpm_id',0 ))) {
+            $jpmId= JRequest::getInt( 'id',$jpmId );
+        }
 
         $model =& $this->getModel();
         $greeting = $model->getGreeting();
         $this->assignRef( 'greeting',$greeting );
-        $items =& $this->get( 'Data');
+        $items = $model->getData($jpmId);
         $this->assignRef( 'items', $items );
+        $this->assignRef( 'jpm_id', $jpmId );
 
         parent::display($tpl);
     }

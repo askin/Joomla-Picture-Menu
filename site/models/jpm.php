@@ -37,10 +37,11 @@ class jpmModeljpm extends JModel
      * Returns the query
      * @return string The query to be used to retrieve the rows from the database
      */
-    function _buildQuery()
+    function _buildQuery($jpm_id)
     {
         $query = ' SELECT * '
             . ' FROM #__jpm '
+            . ' WHERE CID=' . $jpm_id
             ;
         return $query;
     }
@@ -49,12 +50,12 @@ class jpmModeljpm extends JModel
      * Retrieves the hello data
      * @return array Array of objects containing the data from the database
      */
-    function getData()
+    function getData($jpm_id)
     {
         // Lets load the data if it doesn't already exist
         if (empty( $this->_data ))
         {
-            $query = $this->_buildQuery();
+            $query = $this->_buildQuery($jpm_id);
             $this->_data = $this->_getList( $query );
         }
 

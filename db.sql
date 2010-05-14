@@ -1,5 +1,6 @@
 CREATE TABLE #__jpm (
-   ID INT AUTO_INCREMENT,
+   ID         INT AUTO_INCREMENT,
+   CID        INT NOT NULL;
    page_url   VARCHAR(100) NOT NULL,
    page_title VARCHAR(100) NOT NULL,
    pic_small  VARCHAR(100) NOT NULL,
