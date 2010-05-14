@@ -18,7 +18,7 @@ jimport( 'joomla.application.component.view');
  * @package    KelebekYazilim.Work
  */
 
-class JpmView extends JView
+class jpmViewjpm extends JView
 {
     function display($tpl = null)
     {
